@@ -1,24 +1,10 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import ColorPicker from 'react-color';
 
 export default class Color extends Component {
 
-  constructor() {
-    super();
-    this.setColor = this.setColor.bind(this);
-    this.state = {
-      color: '#000',
-    };
-  }
-
-  setColor(newColor) {
-    this.setState({
-      color: newColor.hex,
-    });
-  }
-
   render() {
-    const color = this.state.color;
+    const color = this.props.color;
 
     return (
       <div>
@@ -28,7 +14,7 @@ export default class Color extends Component {
           <div style={{ display: 'inline-block' }}>
             <ColorPicker
               color={color}
-              onChangeComplete={this.setColor}
+              onChangeComplete={this.props.setColor}
               type="sketch"
             />
           </div>
@@ -37,3 +23,8 @@ export default class Color extends Component {
     );
   }
 }
+
+Color.propTypes = {
+  color: PropTypes.string.isRequired,
+  setColor: PropTypes.func.isRequired,
+};

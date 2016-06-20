@@ -9,10 +9,10 @@ export default class ColorHistory extends Component {
 
   renderHistoryList() {
     const colorEntries = this.props.colorEntries;
-    const colorList = colorEntries.map((entry) => (
-      <li key={`color-${entry.color}`}>
+    const colorList = colorEntries.map((entry, index) => (
+      <li key={`color-${entry.color}-${index}`}>
         <strong>Color: </strong>
-        <span style={{ color: `#${entry.color}` }}>#{entry.color}</span> ----------
+        <span style={{ color: entry.color }}>{entry.color}</span> ----------
         <strong>Timestamp:</strong> {entry.timeStamp.format('MMMM DD, YYYY, h:mm:ss a')}
       </li>
     ));
