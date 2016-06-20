@@ -8,8 +8,11 @@ import { Provider } from 'react-redux';
 import { dashboards } from '../redux/reducers';
 
 
-// Set up redux store
-const store = createStore(dashboards);
+// Set up redux store, and with redux dev tools extension support
+let store = createStore(dashboards);
+if (window.devToolsExtension) {
+  store = window.devToolsExtension()(createStore)(dashboards);
+}
 
 const Root = ({ history }) =>
   <Provider store={store}>
