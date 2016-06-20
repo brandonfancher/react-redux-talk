@@ -1,0 +1,11 @@
+ul {
+  list-style: none
+}
+
+:global(#root) {
+  height: 100%;
+}
+
+p, h1, h3, div {
+  text-align: center;
+}
