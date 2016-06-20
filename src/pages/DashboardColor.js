@@ -1,8 +1,10 @@
 import React, { Component, PropTypes } from 'react';
+import { connect } from 'react-redux';
+import * as actions from '../redux/actionCreators';
 import Color from '../components/Color';
 import ColorHistory from '../components/ColorHistory';
 
-export default class DashboardColor extends Component {
+class DashboardColor extends Component {
 
   render() {
     return (
@@ -24,3 +26,14 @@ DashboardColor.propTypes = {
   colorEntries: PropTypes.array,
   setColor: PropTypes.func,
 };
+
+const mapStateToProps = (state) => ({
+  color: state.color,
+  colorEntries: state.colorEntries,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  setColor: (color) => dispatch(actions.setColor(color)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(DashboardColor);

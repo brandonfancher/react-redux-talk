@@ -1,8 +1,10 @@
 import React, { Component, PropTypes } from 'react';
+import { connect } from 'react-redux';
+import * as actions from '../redux/actionCreators';
 import Counter from '../components/Counter';
 import CounterHistory from '../components/CounterHistory';
 
-export default class DashboardCounter extends Component {
+class DashboardCounter extends Component {
 
   render() {
     return (
@@ -24,3 +26,14 @@ DashboardCounter.propTypes = {
   countEntries: PropTypes.array,
   increment: PropTypes.func,
 };
+
+const mapStateToProps = (state) => ({
+  count: state.count,
+  countEntries: state.countEntries,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  increment: () => dispatch(actions.setCount()),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(DashboardCounter);
