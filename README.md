@@ -66,6 +66,7 @@ Component | Has State | Receives Props
 * Free course from redux' creator--Dan Abramov (30 videos): https://github.com/tayiorbeii/egghead.io_redux_course_notes
 * Community notes on that course on github: https://github.com/tayiorbeii/egghead.io_redux_course_notes
 * New course (27 videos) from Dan: [Building React Applications with Idiomatic Redux](https://egghead.io/courses/building-react-applications-with-idiomatic-redux)
+* Free 20-video course by Wes Bos: [Learn Redux](https://learnredux.com/)
 * Redux documentation: http://redux.js.org/index.html
 * Redux documentation for react specifically: http://redux.js.org/docs/basics/UsageWithReact.html
 * Boilerplate for quickly getting a react project started. See Below.
