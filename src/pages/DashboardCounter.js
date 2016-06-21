@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
-import * as actions from '../redux/actionCreators';
+import { setCount } from '../redux/actionCreators';
 import Counter from '../components/Counter';
 import CounterHistory from '../components/CounterHistory';
 
@@ -32,8 +32,4 @@ const mapStateToProps = (state) => ({
   countEntries: state.countDashboard.countEntries,
 });
 
-const mapDispatchToProps = (dispatch) => ({
-  increment: () => dispatch(actions.setCount()),
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(DashboardCounter);
+export default connect(mapStateToProps, { increment: setCount })(DashboardCounter);

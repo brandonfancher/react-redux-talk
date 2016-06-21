@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
-import * as actions from '../redux/actionCreators';
+import { setColor } from '../redux/actionCreators';
 import Color from '../components/Color';
 import ColorHistory from '../components/ColorHistory';
 
@@ -32,8 +32,4 @@ const mapStateToProps = (state) => ({
   colorEntries: state.colorDashboard.colorEntries,
 });
 
-const mapDispatchToProps = (dispatch) => ({
-  setColor: (color) => dispatch(actions.setColor(color)),
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(DashboardColor);
+export default connect(mapStateToProps, { setColor })(DashboardColor);
