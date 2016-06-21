@@ -4,6 +4,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import attachFastClick from 'fastclick';
 import { browserHistory as history } from 'react-router';
+import configureStore from './redux/configureStore';
+
 
 const rootEl = document.getElementById('root');
 // Remove 300ms tap delay on mobile devices
@@ -12,11 +14,14 @@ attachFastClick.attach(document.body);
 // Expose globally
 window.React = React;
 
+const store = configureStore();
+
 let render = () => {
   const Root = require('./pages/Root').default;
   ReactDOM.render(
     <Root
       history={history}
+      store={store}
     />,
     rootEl
   );
