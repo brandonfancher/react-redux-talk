@@ -28,8 +28,8 @@ DashboardCounter.propTypes = {
 };
 
 const mapStateToProps = (state) => ({
-  count: state.count,
-  countEntries: state.countEntries,
+  count: state.countDashboard.count,
+  countEntries: state.countDashboard.countEntries,
 });
 
 const mapDispatchToProps = (dispatch) => ({

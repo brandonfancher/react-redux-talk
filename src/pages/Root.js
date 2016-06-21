@@ -3,15 +3,17 @@ import React, { PropTypes } from 'react';
 import { Router } from 'react-router';
 import routes from '../routes';
 // react-redux imports
-import { createStore } from 'redux';
+import { combineReducers, createStore } from 'redux';
 import { Provider } from 'react-redux';
-import { dashboards } from '../redux/reducers';
+import { colorDashboard } from '../redux/colorReducer';
+import { countDashboard } from '../redux/countReducer';
 
 
 // Set up redux store, and with redux dev tools extension support
-let store = createStore(dashboards);
+const reducer = combineReducers({ colorDashboard, countDashboard });
+let store = createStore(reducer);
 if (window.devToolsExtension) {
-  store = window.devToolsExtension()(createStore)(dashboards);
+  store = window.devToolsExtension()(createStore)(reducer);
 }
 
 const Root = ({ history }) =>
