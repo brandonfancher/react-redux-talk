@@ -1,4 +1,5 @@
 import React, { PropTypes, Component } from 'react';
+import moment from 'moment';
 
 export default class ColorHistory extends Component {
 
@@ -13,7 +14,7 @@ export default class ColorHistory extends Component {
       <li key={`color-${entry.color}-${index}`}>
         <strong>Color: </strong>
         <span style={{ color: entry.color }}>{entry.color}</span> ----------
-        <strong>Timestamp:</strong> {entry.timeStamp.format('MMMM DD, YYYY, h:mm:ss a')}
+        <strong>Timestamp:</strong> {moment(entry.timeStamp).format('MMMM DD, YYYY, h:mm:ss a')}
       </li>
     ));
 

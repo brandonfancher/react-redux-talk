@@ -1,4 +1,5 @@
 import React, { PropTypes, Component } from 'react';
+import moment from 'moment';
 
 export default class CounterHistory extends Component {
 
@@ -12,7 +13,7 @@ export default class CounterHistory extends Component {
     const countList = countEntries.map((entry) => (
       <li key={`count-${entry.count}`}>
         <strong>Count:</strong> {entry.count} ----------
-        <strong>Timestamp:</strong> {entry.timeStamp.format('MMMM DD, YYYY, h:mm:ss a')}
+        <strong>Timestamp:</strong> {moment(entry.timeStamp).format('MMMM DD, YYYY, h:mm:ss a')}
       </li>
     ));
 

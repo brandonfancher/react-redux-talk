@@ -13,7 +13,7 @@ export const countDashboard = (state = initialState, action) => {
       return {
         ...state,
         count: state.count + 1,
-        countEntries: [...state.countEntries, { timeStamp: moment(), count: state.count + 1 }],
+        countEntries: [...state.countEntries, { timeStamp: moment().format(), count: state.count + 1 }],
       };
     default:
       return state;

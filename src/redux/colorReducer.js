@@ -13,7 +13,7 @@ export const colorDashboard = (state = initialState, action) => {
       return {
         ...state,
         color: action.color.hex,
-        colorEntries: [...state.colorEntries, { timeStamp: moment(), color: action.color.hex }],
+        colorEntries: [...state.colorEntries, { timeStamp: moment().format(), color: action.color.hex }],
       };
     default:
       return state;
