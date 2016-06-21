@@ -7,29 +7,20 @@ import { combineReducers, createStore } from 'redux';
 import { Provider } from 'react-redux';
 import { colorDashboard } from '../redux/colorReducer';
 import { countDashboard } from '../redux/countReducer';
+import { loadState, saveState } from '../redux/localStorage';
+import throttle from 'lodash/throttle';
 
 
 // Set up redux store, and with redux dev tools extension support
-const persistedState = {
-  countDashboard: {
-    count: 2,
-    countEntries: [
-      {
-        timeStamp: '2016-06-21T17:39:32.055Z',
-        count: 1,
-      },
-      {
-        timeStamp: '2016-06-21T17:39:34.237Z',
-        count: 2,
-      },
-    ],
-  },
-};
+const persistedState = loadState(); // from localStorage
 const reducer = combineReducers({ colorDashboard, countDashboard });
 let store = createStore(reducer, persistedState);
 if (window.devToolsExtension) {
   store = window.devToolsExtension()(createStore)(reducer, persistedState);
 }
+store.subscribe(throttle(() => {
+  saveState(store.getState());
+}, 1000)); // save to localStorage, once every second to avoid too many expensive JSON.stringify operations
 
 const Root = ({ history }) =>
   <Provider store={store}>
