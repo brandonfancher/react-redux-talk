@@ -26,7 +26,7 @@ npm start
 
 **To follow along with the talk, check out the first commit**
 ```
-git checkout commit id
+git checkout cd897cd
 ```
 
 **Then follow along!**
@@ -35,16 +35,14 @@ git checkout commit id
 
 **What each commit covers**
 
-* `commit id`: Initial Commit. The Counter and Color components work, but the CounterHistory and ColorHistory components aren't hooked up yet.
-* `commit id`: Get the CounterHistory and ColorHistory components to work by pushing the Counter and Color state higher and passing down props.
-* `commit id`: DRY out the state.
-* `commit id`: The CounterHistory and ColorHistory components are working with the Counter and Color components properly now, but those dashboards
+* `cd897cd`: Initial Commit. The Counter and Color components work, but the CounterHistory and ColorHistory components aren't hooked up yet.
+* `de2819d`: Get the CounterHistory and ColorHistory components to work by pushing the Counter and Color state higher and passing down props.
+* `b781afd`: The CounterHistory and ColorHistory components are working with the Counter and Color components properly now, but those dashboards
 lose their state if you leave them. We want state to persist when changing routes. This is where we set the foundation to push the state even higher.
-* `commit id`: Push all app state and handlers (actionCreators) higher into parent App component that doesn't unmount. Stuff starts getting weird. Maybe there's a better way?
-* `commit id`: Enter redux. Install and migrate to react-redux.
-* `commit id`: Check out the redux dev tools chrome browser extension!
-* `commit id`: Separate out concerns a bit: Separate state for each dashboard into separate reducer files.
-* The rest are minor...merges, bug fixes, etc.
+* `4cc7ba2`: Push all app state and handlers (actionCreators) higher into parent App component that doesn't unmount. Stuff starts getting weird. Maybe there's a better way?
+* `d730f06`: Enter redux. Configure and migrate to react-redux.
+* `774a9e9`: Check out the redux dev tools chrome browser extension!
+* `e5ef1d8`: Separate out concerns a bit: Separate state for each dashboard into separate reducer files.
 
 **Mapping out our initial component hierarchy, state and props**
 
